@@ -15,10 +15,10 @@
     <!-- custom css link -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body class="">
     <header>
       <!-- Navbar Section -->
-      <nav class="container mx-auto flex justify-between my-4 items-center">
+      <nav class="container w-[98%]  lg:w-full mx-auto flex justify-between my-4 items-center">
         <div
           class="text-[#030712] text-center text-4xl font-extrabold relative hover:text-[#1DD100]"
         >
@@ -79,7 +79,7 @@
       </nav>
 
       <!-- Banner Section -->
-      <section class="container mx-auto my-6">
+      <section class="container w-[98%]  lg:w-full mx-auto my-6">
         <div
           class="hero lg:rounded-2xl text-white"
           style="background-image: url(images/banner.png)"
@@ -154,7 +154,7 @@
 
     <main>
       <!-- Best Offer Section -->
-      <section>
+      <section class="w-[98%] mx-auto lg:w-full">
         <div class="text-[#030712] text-center text-[40px] font-bold relative">
           Best offers for you
         </div>
@@ -265,7 +265,7 @@
         <section class="container mx-auto mt-12 flex flex-col justify-between lg:flex-row  bg-white rounded-3xl  w-[90%]" id="buyticket">
 
           <!-- Select Ticket Part -->
-            <section class="p-8 border-r-2 border-dotted lg:w-[50%]">
+            <section class="p-8 my-6 border-r-2 border-dotted lg:w-[50%]">
                           <h1 class="text-2xl font-bold border-b-2 border-dotted py-4">Select Your Seat</h1>
 
                           <div class="flex justify-between py-4 border-b-2 border-dotted">
@@ -357,13 +357,15 @@
             </section>
 
             <!-- Ticket Price and buy part -->
-            <section class="p-8 lg:w-[50%]">
+            <section class="p-8 mt-6 lg:w-[50%]">
               <h1 class="text-2xl font-bold border-b-2 border-dotted py-4">Select Your Seat</h1>
+
+              
 
               <!-- Price Field -->
               <div class="bg-stone-50 rounded-xl p-8 mt-6" >
                 <div class="flex justify-between border-b-2 border-dotted pb-4">
-                  <p class="text-gray-950 font-bold">Seat <span class="bg-lime-600 rounded-lg px-3 py-[2px] ">0</span></p>
+                  <p class="text-gray-950 font-bold">Seat <span class="bg-[#1DD100] rounded-lg px-3 py-[2px] ">0</span></p>
                   <p class="text-gray-950 font-bold ">Class</p>
                   <p class="text-gray-950 font-bold">Price</p>
                 </div>
@@ -405,17 +407,35 @@
                     </button>
                 </form>
 
+                <!-- Grand total price -->
+                <div class="flex justify-between mt-4">
+                  <p class="text-2xl font-bold">Grand Total</p>
+                  <p class="text-2xl font-bold">BDT <span id="grandTotal">0</span></p>
               </div>
+              </div>
+              <!-- Passenger Info -->
+              <div class="flex flex-col gap-4 mt-4">
+                <h1 class="text-xl font-bold">Passenger Name*</h1>
+                <input type="text" placeholder="Enter your name" class=" border border-gray-950 border-opacity-10 py-4 px-4 flex-1 rounded-lg">
+                <h1 class="text-xl font-bold">Phone Number*</h1>
+                <input type="number" placeholder="Enter your phone number" class="py-4 px-4 flex-1 rounded-xl border border-gray-950 border-opacity-10">
+                <h1 class="text-xl font-bold">Email ID</h1>
+                <input type="email" placeholder="Enter your email" class="py-4 px-4 flex-1 rounded-xl border border-gray-950 border-opacity-10">
+                
+                <button   class="btn bg-[#1DD100] border-[#1DD100] font-bold text-xl text-white">
+                  Apply
+                </button>
+              
+                  <div class="flex justify-between">
+                    <p class="text-gray-950 text-opacity-60 underline hover:cursor-pointer"> Terms and Conditions</p>
+                    <p class="text-gray-950 text-opacity-60 underline  hover:cursor-pointer"> Cancilation Policy</p>
+                  </div>
+              </div>
+              
             </section>
-
-
+            
         </section>
 
-
-
-        
-    
-    
     </section>
     </main>
 
