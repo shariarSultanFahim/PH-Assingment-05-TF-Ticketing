@@ -375,12 +375,7 @@
                 <!-- Selected Ticket Field -->
                 <div>
                     <div  id="selectedSeatList" class="border-b-2 border-dotted pb-4">
-                      <!-- <div id="ticketprice" class="flex justify-between py-2 ">
-                        <p class="text-gray-950 text-opacity-60">C2</p>
-                        <p class="text-gray-950 text-opacity-60">Economy</p>
-                        <p class="text-gray-950 text-opacity-60">550</p>
-                      </div> -->
-  
+                      <!-- Will be added by JS Dynamically -->
                     </div>
                 </div>
 
@@ -391,12 +386,18 @@
                 </div>
 
                 <!-- Coupon Field -->
-                <form id="couponForm" class="relative flex mt-4 ">
+                <div id="couponForm" class="relative flex mt-4 ">
                     <input id="coupon" type="text" placeholder="Have any coupon?" class="py-4 px-4 flex-1 rounded-lg">
                     <button onclick="couponCheck()"   class="btn bg-[#1DD100] border-[#1DD100] font-bold text-xl text-white absolute right-1 top-1">
                       Apply
                     </button>
-                </form>
+                  </div>
+
+                <!-- Discount Amount -->
+                <div id="discountInfo" class="hidden  justify-between mt-4">
+                  <p class="text-2xl font-bold">Discount</p>
+                  <p class="text-2xl font-bold">BDT <span id="discount">0</span></p>
+              </div>
 
                 <!-- Grand total price -->
                 <div class="flex justify-between mt-4">

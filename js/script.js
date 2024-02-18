@@ -51,7 +51,7 @@ for(let i=0; i<seatId.length; i++){
                         p.textContent = 'Economy';
                     else
                         p.textContent = '550';
-                    
+
                     p.classList.add('text-gray-950', 'text-opacity-60');
                     newDiv.appendChild(p);
                 }
@@ -70,18 +70,31 @@ for(let i=0; i<seatId.length; i++){
 // Coupon Applu
 function couponCheck(){
     var coupon = document.getElementById('coupon').value;
-    if(coupon == 'NEW15'){
-        document.getElementById('grandTotal').innerHTML  = totalPrice - (parseInt(totalPrice)*15) / 100 ;
-        document.getElementById('couponForm').classList.add("hidden");
-    }
-    else if(coupon == 'Couple 20'){
-        document.getElementById('grandTotal').innerHTML  = totalPrice - (parseInt(totalPrice)*20) / 100 ;
-        document.getElementById('couponForm').classList.add("hidden");
+    if(totalPrice > 0){
+        if(coupon == 'NEW15'){
+            document.getElementById('grandTotal').innerHTML  = totalPrice - (parseInt(totalPrice)*15) / 100 ;
+            document.getElementById('couponForm').classList.add("hidden");
+            document.getElementById('discountInfo').classList.remove("hidden");
+            document.getElementById('discountInfo').classList.add("flex");
+            document.getElementById('discount').innerText = (parseInt(totalPrice)*15) / 100;
+
+        }
+        else if(coupon == 'Couple 20'){
+            document.getElementById('grandTotal').innerHTML  = totalPrice - (parseInt(totalPrice)*20) / 100 ;
+            document.getElementById('couponForm').classList.add("hidden");
+            document.getElementById('discountInfo').classList.remove("hidden");
+            document.getElementById('discountInfo').classList.add("flex");
+            document.getElementById('discount').innerText = (parseInt(totalPrice)*20) / 100;
+        }
+        else{
+            document.getElementById('coupon').value = ' ';
+            alert('Your Coupon is not valid!');
+        }
     }
     else{
-        document.getElementById('coupon').value = ' ';
-        alert('Your Coupon is not valid!');
+        alert('You need to select ticket before applying coupon!');
     }
+   
 }
 
 // Ticket Bought Sucess
@@ -94,6 +107,7 @@ function sucess(){
     else
         alert('You need to fill all the information!')
 }
+
 function gotoHome(){
     window.location.href = 'index.html';
 }
