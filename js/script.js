@@ -37,15 +37,21 @@ for (let i = 0; i < seatId.length; i++) {
         document.getElementById("grandTotal").innerHTML = grandTotal;
 
         flag = true;
+
+        if (maxSeatCnt == 4) {
+          document.getElementById("couponButton").style.backgroundColor =
+            "#1DD100";
+            document.getElementById("couponButton").disabled = false;
+        }
         maxSeatCnt++;
 
         const selectedSeatList = document.getElementById("selectedSeatList");
 
-        var newDiv = document.createElement("div");
+        let newDiv = document.createElement("div");
         newDiv.classList.add("flex", "justify-between", "py-2");
 
-        for (var i = 1; i <= 3; i++) {
-          var p = document.createElement("p");
+        for (let i = 1; i <= 3; i++) {
+          let p = document.createElement("p");
           if (i == 1) p.textContent = seats.innerText;
           else if (i == 2) p.textContent = "Economy";
           else p.textContent = "550";
@@ -54,50 +60,54 @@ for (let i = 0; i < seatId.length; i++) {
           newDiv.appendChild(p);
         }
         selectedSeatList.appendChild(newDiv);
+        document.getElementById('selectedSeatList').classList.add('border-b-2');
       }
     } else {
-      alert("You cannot buy more than 4 tickets!");
+      my_modal_2.showModal()
     }
   });
 }
 
 // Coupon Applu
 function couponCheck() {
-  var coupon = document.getElementById("coupon").value;
-  if (totalPrice > 0) {
-    if (coupon == "NEW15") {
-      document.getElementById("grandTotal").innerHTML =
-        totalPrice - (parseInt(totalPrice) * 15) / 100;
-      document.getElementById("couponForm").classList.add("hidden");
-      document.getElementById("discountInfo").classList.remove("hidden");
-      document.getElementById("discountInfo").classList.add("flex");
-      document.getElementById("discount").innerText =
-        (parseInt(totalPrice) * 15) / 100;
-    } else if (coupon == "Couple 20") {
-      document.getElementById("grandTotal").innerHTML =
-        totalPrice - (parseInt(totalPrice) * 20) / 100;
-      document.getElementById("couponForm").classList.add("hidden");
-      document.getElementById("discountInfo").classList.remove("hidden");
-      document.getElementById("discountInfo").classList.add("flex");
-      document.getElementById("discount").innerText =
-        (parseInt(totalPrice) * 20) / 100;
-    } else {
-      document.getElementById("coupon").value = " ";
-      alert("Your Coupon is not valid!");
-    }
-  } else {
-    alert("You need to select ticket before applying coupon!");
-  }
-}
+  let coupon = document.getElementById("coupon").value;
+      if (coupon == "NEW15") {
+        document.getElementById("grandTotal").innerHTML =
+          totalPrice - (parseInt(totalPrice) * 15) / 100;
+        document.getElementById("couponForm").classList.add("hidden");
+        document.getElementById("discountInfo").classList.remove("hidden");
+        document.getElementById("discountInfo").classList.add("flex");
+        document.getElementById("discount").innerText =
+          (parseInt(totalPrice) * 15) / 100;
+      } else if (coupon == "Couple 20") {
+        document.getElementById("grandTotal").innerHTML =
+          totalPrice - (parseInt(totalPrice) * 20) / 100;
+        document.getElementById("couponForm").classList.add("hidden");
+        document.getElementById("discountInfo").classList.remove("hidden");
+        document.getElementById("discountInfo").classList.add("flex");
+        document.getElementById("discount").innerText =
+          (parseInt(totalPrice) * 20) / 100;
+      } else {
+        document.getElementById("coupon").value = "";
+        my_modal_1.showModal();
+      }
+    } 
+
 
 // Ticket Bought Sucess
+
+document.getElementById("infoButton").disabled = false;
+
 function sucess() {
   let name = document.getElementById("name").value;
   let phone = document.getElementById("phone").value;
   let email = document.getElementById("email").value;
+
   if (name != "" && phone != "" && email != "")
     window.location.href = "sucess.html";
-  else alert("You need to fill all the information!");
+  else {
+    my_modal_3.showModal()
+  }
 }
 
 function gotoHome() {
